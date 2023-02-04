@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+    <style>
+        body, html {
+          height: 100%;
+          margin: 0;
+        }
+        
+        .bg {
+          /* The image used */
+          background-image: url("https://t3.ftcdn.net/jpg/01/17/33/22/360_F_117332203_ekwDZkViF6M3itApEFRIH4844XjJ7zEb.jpg");
+        
+          /* Full height */
+          height: 100%; 
+        
+          /* Center and scale the image nicely */
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+        </style>
+</head>
+
+<div class="bg">
+    <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Components</th>
+            <th scope="col"></th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Marka</td>
+            <td><%= data.amzn.marka %> </td>
+            
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Ekran Boyutu</td>
+            <td><%= data.amzn.ekran %> inç</td>
+            
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>RAM</td>
+            <td><%= data.amzn.ram %> GB</td>
+            
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>Ekran Kartı</td>
+            <td><%= data.amzn.ekran_karti %></td>
+            
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td>İşlemci</td>
+            <td><%= data.amzn.islemci %> GB</td>
+            
+          </tr>
+        </tbody>
+      </table>
+      <% if (data.amzn.fiyat != data.hpsi.fiyat) { %>
+        <a href="<%= data.amzn.url %>" class="btn btn-primary">
+            <img src="//cdn.akakce.com/im/m6/10001.svg" alt="">
+            <p><%= data.amzn.fiyat %> TL</p>
+        </a>
+        <a href="<%= data.hpsi.url %>" class="btn btn-primary">
+            <img src="//cdn.akakce.com/im/m6/12088.svg" alt="">
+            <p><%= data.hpsi.fiyat %> TL</p>
+        </a>
+      <% } else { %>
+            <% if (data.amzn.site === 'amazon') { %>
+                <a href="<%= data.amzn.url %>" class="btn btn-primary">
+                    <img src="//cdn.akakce.com/im/m6/10001.svg" alt="">
+                    <p><%= data.amzn.fiyat %> TL</p>
+                </a>
+            <% } else{ %>
+                <a href="<%= data.hpsi.url %> " class="btn btn-primary">
+                    <img src="//cdn.akakce.com/im/m6/12088.svg" alt="">
+                    <p><%= data.hpsi.fiyat %> TL</p>
+                </a>
+                <% } %> 
+        <% } %>
+    </div> 
+</body>
+</html>
